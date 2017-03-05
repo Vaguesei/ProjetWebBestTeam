@@ -1,8 +1,10 @@
 package app;
 
+import java.io.IOException;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		//main method to launch everything
 		
 		//ici, le DSL devra remplacer "Paris", "Rennes" et "naissances" 
