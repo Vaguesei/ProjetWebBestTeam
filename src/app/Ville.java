@@ -1,8 +1,14 @@
 package app;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+
 public class Ville {
 	public String name ;
 	public String adress ;
+	
+	public HashMap<String, String> datasets = new HashMap<String, String>();
+	public HashMap<String, HashMap<String,String>> fields = new HashMap<String,  HashMap<String,String>>();
 
 	public Ville(String name){
 		this.name = name ;
