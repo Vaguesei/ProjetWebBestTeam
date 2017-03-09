@@ -11,22 +11,21 @@ public class Main {
 		//par ce que l'utilisateur aura écrit en utilisantnotre langage
 		Data d = new Data(new Ville("Paris"), new Ville("Rennes"), new Theme("naissances"));
 		
-		d.getData(); //faudra reflechir a la facon de stocker ces datasets
-		//peut-etre un attribut List<datasets> dans la classe ville ?
+		d.getData();
 		
+		//choix par l'utilisateur des datasets pour chaque ville
+		d.v1.chooseDatasets();
+		d.v2.chooseDatasets();
+		
+		//choix par l'utilisateur des colonnes pour chaque dataset
+		d.v1.chooseColumn();
+		d.v2.chooseColumn();
+		
+		System.out.println("on va bosser avec la colonne "+d.v1.choosenColumn+"du dataset"+d.v1.choosenDataset);
+		System.out.println("on va bosser avec la colonne "+d.v2.choosenColumn+"du dataset"+d.v2.choosenDataset);
+
 		/*
 		 * TODO
-		 * 
-		 * afficher a l'utilisateur les datasets qu'on a pour chaque ville dans le theme qu'il a choisi
-		 * genre afficher d.v1.getDatasetsNames() et d.v2.getDatasetsNames()
-		 * 
-		 * lui demander quel dataset il veut utiliser pour chaque ville
-		 * 
-		 * afficher les colonnes de chaque dataset
-		 * genre d.v1.getDataset("nom du dataset choisi dans la ville 1").getColumnNames
-		 * et d.v2.getDataset("nom du dataset choisi dans la ville 2").getColumnNames
-		 * 
-		 * faire choisir a l utilisateur 2 colonnes dans chacun des 2 datasets
 		 * 
 		 * calculer la correlation / tracer le graphique (utilisation de Renjin ou JSAT ?) sur les objets
 		 * d.v1.getDataset("nom du dataset choisi dans la ville 1").getColumn("nom de la 1e colonne choisi")
@@ -34,12 +33,6 @@ public class Main {
 		 * d.v2.getDataset("nom du dataset choisi dans la ville 1").getColumn("nom de la 3e colonne choisi")
 		 * d.v2.getDataset("nom du dataset choisi dans la ville 1").getColumn("nom de la 4e colonne choisi")
 		 */
-		
-		
-		//tests ici qui seront enleves :
-		System.out.println(d.v1.name + " : " + d.v1.adress);
-		System.out.println(d.v2.name + " : " + d.v2.adress);
-		System.out.println("Theme choisi : " + d.theme.name);
 	}
 
 }
