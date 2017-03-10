@@ -30,7 +30,7 @@ public class Data {
 		rechercherDatasets(v1);
 		rechercherDatasets(v2);
 		
-		System.out.println(v1.name);
+		/*System.out.println(v1.name);
 		for (Entry<String, String> dataset : v1.datasets.entrySet()) {
 			System.out.println(dataset.getKey() +" : "+ dataset.getValue());
 			for (Entry<String, String> field : v1.fields.get(dataset.getKey()).entrySet() ) {
@@ -44,7 +44,7 @@ public class Data {
 			for (Entry<String, String> field : v2.fields.get(dataset.getKey()).entrySet() ) {
 				System.out.println(field.getKey() +" : "+ field.getValue());
 			}
-		}
+		}*/
 	}
 
 	public void rechercherDatasets(Ville ville) throws IOException {
@@ -75,6 +75,13 @@ public class Data {
 			ville.fields.put(dataset.get("datasetid").getAsString(), listeFields);
 		}
 	}
+	
+	public void récupérerDatasets(Ville ville, String datasetid) throws IOException {
+		String url = ville.adress + "api/records/1.0/search/?dataset=" + datasetid;
+		String content = getText(url);
+		
+		JsonObject json = new JsonParser().parse(content).getAsJsonObject();
+	}
 
 	
 	public static String getText(String url) throws IOException {
@@ -93,8 +100,4 @@ public class Data {
         return response.toString();
     }
 
-    public static void main(String[] args) throws IOException {
-    	Data d = new Data(new Ville("Paris"), new Ville("Rennes"), new Theme("naissances"));
-    	d.getData();
-    }
 }
