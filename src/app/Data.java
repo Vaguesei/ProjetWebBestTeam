@@ -76,8 +76,8 @@ public class Data {
 		}
 	}
 	
-	public void récupérerDatasets(Ville ville, String datasetid) throws IOException {
-		String url = ville.adress + "api/records/1.0/search/?dataset=" + datasetid;
+	public void récupérerDatasets(Ville ville) throws IOException {
+		String url = ville.adress + "api/records/1.0/search/?dataset=" + ville.choosenDataset;
 		String content = getText(url);
 		
 		JsonObject json = new JsonParser().parse(content).getAsJsonObject();
